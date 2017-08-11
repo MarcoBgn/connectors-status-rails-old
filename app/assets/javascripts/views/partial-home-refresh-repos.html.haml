@@ -1,0 +1,20 @@
+%h2{'ng-if'=>'refreshed'} {{refreshNotice}}
+%div.row{'ng-show'=>'reposList'}
+  %div
+    %table
+      %tbody
+        %tr
+          %td
+            Name
+          %td
+            Description
+          %td
+            Framework Version PROD
+          %td
+            Framework Version UAT
+        %tr{'ng-repeat'=>"repo in reposList | filter:'connector' | filter:query"}
+          %th.descriptive
+            %a{'ng-href'=>'{{repo.html_url}}'} {{repo.name}}
+          %th.descriptive {{repo.description}}
+          %th.descriptive{'ng-init'=>'checkStatusProd(repo.name)'} {{statusProd[$index] || 'N/A'}}
+          %th.descriptive{'ng-init'=>'checkStatusUAT(repo.name)'} {{statusUAT[$index] || 'N/A'}}

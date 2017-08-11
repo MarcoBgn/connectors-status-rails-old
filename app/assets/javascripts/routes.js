@@ -4,18 +4,13 @@ angular
     $stateProvider
       .state('home', {
         url: '/home',
-        templateUrl: 'views/home.html',
+        templateUrl: 'views/partial-home.html',
         controller: 'HomeCtrl'
       })
-      .state('access', {
-        url: '/access',
-        templateUrl: 'views/access.html',
-        controller: 'AccessCtrl',
-        onEnter: function(apiKey, $state){
-          AuthVerifier.authenticate().then(function(){
-            $state.go('home')
-          })
-        }
+      .state('home.refresh-repos', {
+        url: '/refresh-repos',
+        templateUrl: 'views/partial-home-refresh-repos.html',
+        controller: 'RefreshCtrl'
       })
     $urlRouterProvider.otherwise('/home')
   })

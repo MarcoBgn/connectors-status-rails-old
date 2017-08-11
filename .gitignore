@@ -16,5 +16,8 @@
 !/log/.keep
 /tmp
 
+# Ignore env
+/app/assets/javascripts/env.js
+
 # Ignore coverage reports
 /coverage
