@@ -24,7 +24,7 @@
   function RepoFetcherService($http) {
     var request = {
       method: 'GET',
-      url: 'https://api.github.com/search/repositories?connector in:name+org:maestrano+sort:updated+connector+NOT+rails',
+      url: 'https://api.github.com/search/repositories?q=connector in:name+org:maestrano+sort:updated+connector+NOT+rails&per_page=50',
       headers: {
         'Authorization': 'token ' + __env.ApiToken
       }
